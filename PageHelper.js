@@ -10,8 +10,8 @@ PageHelper.getTitleForUrl = function(url){
               url: shortUrl,
               complete: function(data) {
                 resolve(data.responseText);
-              }
-              error: fucntion(){
+              },
+              error: function(){
                   resolve("");
               }
         });
