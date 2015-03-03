@@ -10,6 +10,7 @@ PeopleProcessor.prototype.process = function(input,result){
             if(!result.mentions){
                 result.mentions = [];
             }
+            var name = match[1];
             if(result.mentions.indexOf(name)==-1){
                 result.mentions.push(name);
             }
