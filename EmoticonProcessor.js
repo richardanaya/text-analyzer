@@ -12,7 +12,9 @@ EmoticonProcessor.prototype.process = function(input,result){
                 if(!result.emoticons){
                     result.emoticons = [];
                 }
-                result.emoticons.push(emo);
+                if(result.emoticons.indexOf(emo)==-1){
+                    result.emoticons.push(emo);
+                }
             }
         }
         resolve();
