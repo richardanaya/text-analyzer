@@ -8,7 +8,16 @@ LinkProcessor.prototype.addUrl = function(url,result){
             if(!result.links){
                 result.links = [];
             }
-            result.links.push({url:url,title:title});
+            var found = false;
+            for(var l in result.links){
+                if(result.links[l].url == url){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                result.links.push({url:url,title:title});
+            }
             resolve();
         })
     })
