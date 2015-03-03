@@ -7,7 +7,7 @@ PageHelper.getTitleForUrl = function(url){
         var shortUrl = url.replace("http://","");
          shortUrl = url.replace("https://","");
         $.ajax({
-              url: shortUrl,
+              url: "http://textance.herokuapp.com/title/"+shortUrl,
               complete: function(data) {
                 resolve(data.responseText);
               },
