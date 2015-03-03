@@ -11,7 +11,7 @@ PageHelper.getTitleForUrl = function(url){
               complete: function(data) {
                 resolve(data.responseText);
               },
-              error: function(){
+              error: function(err){
                   resolve("");
               }
         });
