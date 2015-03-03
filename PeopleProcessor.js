@@ -10,7 +10,10 @@ PeopleProcessor.prototype.process = function(input,result){
             if(!result.mentions){
                 result.mentions = [];
             }
-            result.mentions.push(match[1]);
+            var name = match[1];
+            if(result.mentions.indexOf(name)==-1){
+                result.mentions.push(name);
+            }
         }
         resolve();
     });
