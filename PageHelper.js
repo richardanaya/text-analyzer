@@ -4,7 +4,13 @@ var PageHelper = function(){
 
 PageHelper.getTitleForUrl = function(url){
     return Q.Promise(function(resolve, reject, notify) {
-        //TODO: use real backend service to get titles of other pages by url cross-domainly
-        resolve("Lolcats! - Learn more about lolcats");
+        $.ajax({
+          url: url,
+          async: true,
+          success: function(data) {
+            var matches = data.match(/<title>(.*?)<\/title>/);
+            resolve(matches[0]);
+          }   
+        });
     });
 }
