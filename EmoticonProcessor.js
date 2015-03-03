@@ -7,10 +7,13 @@ EmoticonProcessor.prototype.process = function(input,result){
         var re =  /\(([^)]+)\)/g;
         var match, params = {};
         while (match = re.exec(input)) {
-            if(!result.emoticons){
-                result.emoticons = [];
+            var emo = match[1];
+            if(emo.length <= 15){
+                if(!result.emoticons){
+                    result.emoticons = [];
+                }
+                result.emoticons.push(emo);
             }
-            result.emoticons.push(match[1]);
         }
         resolve();
     });
