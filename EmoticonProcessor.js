@@ -4,7 +4,7 @@ var EmoticonProcessor = function(){
 
 EmoticonProcessor.prototype.process = function(input,result){
     return Q.Promise(function(resolve, reject, notify) {
-        var re =  /\(([^)]+)\)/g;
+        var re =  /\(([a-zA-Z]+)\)/g;
         var match, params = {};
         while (match = re.exec(input)) {
             var emo = match[1];
