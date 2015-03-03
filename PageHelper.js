@@ -9,10 +9,12 @@ PageHelper.getTitleForUrl = function(url){
         $.ajax({
               url: "http://textance.herokuapp.com/title/"+shortUrl,
               complete: function(data) {
-                resolve(data.responseText);
-              },
-              error: function(){
-                  resolve("");
+                if(data.status == 200){
+                    resolve(data.responseText);
+                }
+                else {
+                    resolve("");
+                }
               }
         });
     });
